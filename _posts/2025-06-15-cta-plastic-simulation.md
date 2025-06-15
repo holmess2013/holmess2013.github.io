@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Thermo- and Mechanical Property Prediction of Amorphous Cellulose Triacetate Plastic"
+author: "Samuel Holmes"
 ---
 
 Thermoplastics have become some of the most widely used and indispensable materials in the modern world, forming the backbone of countless products across industries. They are used in everything from medical implants and drug delivery systems to toys, textiles, packaging, automotive parts, building materials, and even military-grade composites. As global plastic consumption continues to rise with a growing population, the need for renewable, sustainable alternatives to petroleum-based plastics has become more urgent than ever. 
