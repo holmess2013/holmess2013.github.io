@@ -2,7 +2,7 @@
 layout: post
 title: "Thermo- and Mechanical Property Prediction of Amorphous Cellulose Triacetate Plastic"
 author: "Samuel Holmes"
-tags: [md-simulation, cellulose, force-field, thermoplastic, AMBER, GLYCAM, glycomaterials]
+tags: [MD-simulation, cellulose, force-field, thermoplastic, AMBER, GLYCAM, glycomaterials]
 
 ---
 Hello, and welcome to my blog! I’m Sam, a computational chemist and postdoctoral researcher in the Woods Lab at the CCRC at the University of Georgia, and I specialize in force field parameter development and molecular modeling of glycomaterials. This blog documents my ongoing efforts to model and design eco-friendly polysaccharide-based plastics using all-atom MD.
