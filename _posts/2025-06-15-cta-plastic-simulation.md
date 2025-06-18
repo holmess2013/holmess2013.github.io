@@ -17,13 +17,13 @@ To that end, in this blog series, I use all-atom MD simulations with the GLYCAM0
 - Equilibrate the system at 600 K to allow chain entanglement, and then cool down to 300 K to achieve a "realistic" starting configuration of an amorphous CTA plastic.
 - Predict glass transition temperature and Young's modulus. 
 
-## Part 1: Building and Parameterizing the System
+## Part 1: Building and Parameterizing the Plastic
 
 The first objective in this project is to obtain a 3D model of CTA that is physically realistic and consistent with the DS of real CTA plastics. The DS refers to the average number of hydroxyl groups per glucose unit that have been replaced with acetate groups, with a maximum of 3.0. In practice, polymer chemists rarely achieve a perfect DS of exactly 3.0. Even when aiming for full substitution, the final product typically falls somewhere in the range of 2.7 to just under 3.0, depending on reaction conditions and steric accessibility of the hydroxyls. These small differences in DS can affect the the thermoplastic properties of CTA, which is why it is important to try and match the real DS. 
 
 For this initial model, I am going to use a simplified approach: a fully substituted CTA with DS = 3.0, meaning that every glucose monomer is acetyated at the 2-, 3-, and 6- positions. While not perfectly reflective of a real-world CTA sample, this version is chemically well-defined, and likely close enough in chemical structure to exhibit similar bulk behavior—especially in the amorphous phase. If needed, I can revisit partial substitution in future models using a randomized or pattern-based DS distribution.
 
-# Obtaining a 3D Model of CTA (DS = 3.0)
+# Obtaining a 3D Model of a Single CTA 100-mer (DS = 3.0)
 
 In this project, I will use the Glycam Molecular Modeling Library (GMML) to construct a 3D model of CTA, which is a C++ software package written by Oliver Grant, a research scientist in the Woods Lab. I've included Oliver's GitHub URL here if you are interested in checking out his coding projects (https://github.com/gitoliver). A new version of GMML has recently been released to the public, called GMML2. GMML2 is an incredibly valuable piece of software, as it was prepared with the strict formatting requirements of LEaP in mind - the notoriously finnicky program in AMBER that attempts to match force field parameters to a 3D model. In short, GMML2 is an ideal choice here for model generation as it prepares a physically realistic model in PDB format with all the necessary information for LEaP to correctly parameterize it, in particular, GLYCAM atom and residue names, TER cards to separate each residue, and bonding information. GMML2 can be installed as a standalone package and used on the command line, and information about installation and usage is included here (https://github.com/GLYCAM-Web/gmml2). 
 
