@@ -19,7 +19,7 @@ To that end, in this blog series, I use all-atom MD simulations with the GLYCAM0
 
 ## Part 1: Building and Parameterizing the System
 
-One of the first decisions I had to make in modeling cellulose triacetate (CTA) was how closely to match the degree of substitution (DS) seen in real materials. The DS refers to the average number of hydroxyl groups per glucose unit that have been replaced with acetate groups, with a maximum of 3.0. In practice, polymer chemists rarely achieve a perfect DS of exactly 3.0. Even when aiming for full substitution, the final product typically falls somewhere in the range of 2.7 to just under 3.0, depending on reaction conditions and steric accessibility of the hydroxyls.
+One of the first decisions I had to make in modeling cellulose triacetate (CTA) was how closely to match the degree of substitution (DS) in real CTA plastics. The DS refers to the average number of hydroxyl groups per glucose unit that have been replaced with acetate groups, with a maximum of 3.0. In practice, polymer chemists rarely achieve a perfect DS of exactly 3.0. Even when aiming for full substitution, the final product typically falls somewhere in the range of 2.7 to just under 3.0, depending on reaction conditions and steric accessibility of the hydroxyls.
 
 These small differences in DS can affect solubility, crystallinity, and mechanical properties, so it’s important to at least think critically about how we represent them in simulations. However, modeling a statistically accurate distribution of DS across a long polymer chain would introduce a lot of complexity—especially for an all-atom force field like GLYCAM that relies on clearly defined residue types and parameterized chemical environments.
 
