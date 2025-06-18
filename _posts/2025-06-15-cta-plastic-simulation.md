@@ -34,7 +34,7 @@ Once GMM2 has be succesfully installed, we can build the model of CTA with the c
 carbohydrateBuilder [input file] _ [output directory]
 
 This command takes three arguments:
-1) You input file containing the glyomaterial you want to build.
+1) You input file containing the glycomaterial you want to build.
 2) The delimiter used in your input file.
 3) The output directory for your model.
 
