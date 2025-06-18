@@ -44,6 +44,6 @@ CTA.100mer_[4DGlcp[2Ac,3Ac,6Ac]b1-]<100>OH
 
 The format the carbohydrate builder is expecting is [sequence_name][delimiter][sequence in glycam condensed notation]. You can choose whatever delimeter you want, but the second argument in the command must specify what the delimeter is.
 
-
+*Last updated 6/18/25*
 
 
