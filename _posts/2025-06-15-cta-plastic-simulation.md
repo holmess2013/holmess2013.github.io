@@ -17,7 +17,7 @@ To that end, in this blog series, I use all-atom MD simulations with the GLYCAM0
 - Equilibrate the system at 600 K to allow chain entanglement, and then cool down to 300 K to achieve a "realistic" starting configuration of an amorphous CTA plastic.
 - Predict glass transition temperature and Young's modulus. 
 
-## Part 1: Building and Parameterizing the Plastic
+## Part 1: Building and Parameterizing the Initial System
 
 The first objective in this project is to obtain a 3D model of CTA that is physically realistic and consistent with the DS of real CTA plastics. The DS refers to the average number of hydroxyl groups per glucose unit that have been replaced with acetate groups, with a maximum of 3.0. In practice, polymer chemists rarely achieve a perfect DS of exactly 3.0. Even when aiming for full substitution, the final product typically falls somewhere in the range of 2.7 to just under 3.0, depending on reaction conditions and steric accessibility of the hydroxyls. These small differences in DS can affect the the thermoplastic properties of CTA, which is why it is important to try and match the real DS. 
 
