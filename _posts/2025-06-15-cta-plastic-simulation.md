@@ -5,6 +5,7 @@ author: "Samuel Holmes"
 tags: [MD-simulation, cellulose, force-field, thermoplastic, AMBER, GLYCAM, glycomaterials]
 
 ---
+# Introduction
 Hello, and welcome to my blog! I’m Sam, a computational chemist and postdoctoral researcher in the Woods Lab at the CCRC at the University of Georgia, and I specialize in force field parameter development and molecular modeling of glycomaterials. This blog documents my ongoing efforts to model and design eco-friendly polysaccharide-based plastics using all-atom MD.
 
 Thermoplastics have become some of the most widely used and indispensable materials in the modern world. They are used in everything from medical implants and drug delivery systems to toys, textiles, packaging, automotive parts, building materials, and even military-grade composites. As global plastic consumption continues to rise with a growing population, the need for renewable, sustainable alternatives to petroleum-based plastics has become more urgent than ever. 
