@@ -31,7 +31,7 @@ In this project, I will use the Glycam Molecular Modeling Library (GMML) to cons
 
 To build the model for CTA, we can take advantage of some helpful GMML functionality called Glycam-Condensed Notation, which allows glycomaterials to be built from simple strings. More information can be found here (https://glycam.org/docs/custombuilders/condensed-notation/index.html). 
 
-Once GMM2 has be succesfully installed, we can build the model of CTA with the carbohydrate builder:
+Once GMML2 has be succesfully installed, we can build the model of CTA with the carbohydrate builder:
 
 carbohydrateBuilder [input file] _ [output directory]
 
