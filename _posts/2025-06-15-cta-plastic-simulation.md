@@ -27,7 +27,23 @@ For this initial model, I am going to use a simplified approach: a fully substit
 
 In this project, I will use the Glycam Molecular Modeling Library (GMML) to construct a 3D model of CTA, which is a C++ software package written by Oliver Grant, a research scientist in the Woods Lab. I've included Oliver's GitHub URL here if you are interested in checking out his coding projects (https://github.com/gitoliver). A new version of GMML has recently been released to the public, called GMML2. GMML2 is an incredibly valuable piece of software, as it was prepared with the strict formatting requirements of LEaP in mind - the notoriously finnicky program in AMBER that attempts to match force field parameters to a 3D model. In short, GMML2 is an ideal choice here for model generation as it prepares a physically realistic model in PDB format with all the necessary information for LEaP to correctly parameterize it, in particular, GLYCAM atom and residue names, TER cards to separate each residue, and bonding information. GMML2 can be installed as a standalone package and used on the command line, and information about installation and usage is included here (https://github.com/GLYCAM-Web/gmml2). 
 
-To build a the model for CTA (DS = 3.0, DP = 100) we can take advantage of some helpful GMML functionality called Glycam-Condensed Notation, which allows complex glycomaterials to be built from simple strings. More information can be found here (https://glycam.org/docs/custombuilders/condensed-notation/index.html). 
+To build the model for CTA, we can take advantage of some helpful GMML functionality called Glycam-Condensed Notation, which allows glycomaterials to be built from simple strings. More information can be found here (https://glycam.org/docs/custombuilders/condensed-notation/index.html). 
+
+Once GMM2 has be succesfully installed, we can build the model of CTA with the carbohydrate builder:
+
+carbohydrateBuilder [input file] _ [output directory]
+
+This command takes three arguments:
+1) You input file containing the glyomaterial you want to build,
+2) The delimiter used in your input file.
+3) The output directory for your model.
+
+3) is straightforward, but let break down 1) and 2). My input file looks like this:
+
+CTA.100mer_[4DGlcp[2Ac,3Ac,6Ac]b1-]<100>OH
+
+The format the carbohydrate builder is expecting is [sequence_name][delimiter][sequence in glycam condensed notation]. You can choose whatever delimeter you want, but the second argument in the command must specify what the delimeter is.
+
 
 
 
