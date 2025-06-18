@@ -38,7 +38,7 @@ This command takes three arguments:
 2) The delimiter used in your input file.
 3) The output directory for your model.
 
-3) is straightforward, but let break down 1) and 2). My input file looks like this:
+3) is straightforward, but let's break down 1) and 2). My input file looks like this:
 
 CTA.100mer_[4DGlcp[2Ac,3Ac,6Ac]b1-]<100>OH
 
