@@ -71,6 +71,19 @@ Now, you might be thinking, “*It looks like all the Glc monomers are already i
 
 Fortunately, this will be addressed in our upcoming force field release—GLYCAM25, coming soon!
 
+For the time being, a workaround, albeit a bit tedious, is to apply NMR-style torsion angle restraints to all of the rings in the polymer to maintain the 4C1 pucker during collapse. Let's go through an example to understand how to construct a torsion angle restraint. 
+
+Let's say we have a single Glc ring,
+
+There are two main simulation engines in the AMBER software suite, called sander and pmemd, and we will be using the former for this first step since it plays a bit better with vacuum simulations than pmemd. 
+
+Here is the collapse:
+
+<video width="640" height="360" controls>
+  <source src="/figures/CTA_collapse.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 *Last Updated 6/27/25*
 
 ## References
