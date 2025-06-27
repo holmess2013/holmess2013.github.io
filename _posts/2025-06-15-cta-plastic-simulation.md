@@ -53,5 +53,11 @@ After building the sequence, GMML2 generates two files, the pdb containing your 
 
 ![GMML2_generated_CTA_model](../figures/GMML_CTA_figure1.png)
 
-As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans [REF]. If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (https://glycam.org/docs/othertoolsservice/2016/06/03/3d-symbol-nomenclature-for-glycans-3d-sng/index.html). 
+As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans (Varki et al. 2015). If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (https://glycam.org/docs/othertoolsservice/2016/06/03/3d-symbol-nomenclature-for-glycans-3d-sng/index.html). 
+
+
+
+## References
+[1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/ 10.1093/glycob/cwv091
+
 
