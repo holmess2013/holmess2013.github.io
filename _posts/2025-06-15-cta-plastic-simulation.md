@@ -51,7 +51,7 @@ The format the carbohydrate builder is expecting is [sequence_name][delimiter][s
 
 After building the sequence, GMML2 generates two files, the pdb containing your structure and an AMBER off file. We can ignore the latter. Let's visualize the results of the build in VMD:
 
-![GMML2_generated_CTA_model](../figures/GMML_CTA_figure1.png)
+![GMML2_generated_CTA_model](/figures/GMML_CTA_figure1.png)
 
 As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans (Varki et al. 2015). If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (https://glycam.org/docs/othertoolsservice/2016/06/03/3d-symbol-nomenclature-for-glycans-3d-sng/index.html). 
 
