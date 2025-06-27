@@ -16,7 +16,7 @@ To that end, in this blog series, I use all-atom MD simulations with the GLYCAM0
 
 
 # Goals
-- Successfully build and parameterize a system of 20 x CTA with DP=100.
+- Successfully build and parameterize a system of 20 x CTA polymers with DP = 100 and DS = 3.0.
 - Equilibrate the system at 600 K to allow chain entanglement, and then cool down to 300 K to achieve a "realistic" starting configuration of an amorphous CTA plastic.
 - Predict glass transition temperature and Young's modulus. 
 
@@ -28,7 +28,7 @@ For this initial model, I am going to use a simplified approach: a fully substit
 
 ### Obtaining a 3D Model of a Single CTA 100-mer (DS = 3.0)
 
-In this project, I will use the Glycam Molecular Modeling Library (GMML) to construct a 3D model of CTA, which is a C++ software package written by Oliver Grant, a research scientist in the Woods Lab. I've included Oliver's GitHub URL here if you are interested in checking out his coding projects (https://github.com/gitoliver). A new version of GMML has recently been released to the public, called GMML2. GMML2 is an incredibly valuable piece of software, as it was prepared with the strict formatting requirements of LEaP in mind - the notoriously finnicky program in AMBER that attempts to match force field parameters to a 3D model. In short, GMML2 is an ideal choice here for model generation as it prepares a physically realistic model in PDB format with all the necessary information for LEaP to correctly parameterize it, in particular, GLYCAM atom and residue names, TER cards to separate each residue, and bonding information. GMML2 can be installed as a standalone package and used on the command line, and information about installation and usage is included here (https://github.com/GLYCAM-Web/gmml2). 
+In this project, I will use the Glycam Molecular Modeling Library (GMML) to construct a 3D model of CTA, which is a C++ software package written by Oliver Grant, a research scientist in the Woods Lab. I've included Oliver's GitHub URL here if you are interested in checking out his coding projects (https://github.com/gitoliver). A new version of GMML has recently been released to the public, called GMML2. GMML2 is an incredibly valuable piece of software, as it was prepared with the strict formatting requirements of LEaP in mind - the notoriously finnicky program in AMBER that attempts to match force field parameters to a 3D model. In short, GMML2 is an ideal choice here for model generation as it rapidly generates physically realistic molecular models of glycomaterials in PDB format with all the necessary information for LEaP to correctly parameterize it, in particular, GLYCAM atom and residue names, TER cards to separate each residue, and bonding information. GMML2 can be installed as a standalone package and used on the command line, and information about installation and usage is included here (https://github.com/GLYCAM-Web/gmml2). 
 
 To build the model for CTA, we can take advantage of some helpful GMML functionality called Glycam-Condensed Notation, which allows glycomaterials to be built from simple strings. More information can be found here (https://glycam.org/docs/custombuilders/condensed-notation/index.html). 
 
@@ -49,11 +49,9 @@ CTA.100mer_[4DGlcp[2Ac,3Ac,6Ac]b1-]<100>OH
 ```
 The format the carbohydrate builder is expecting is [sequence_name][delimiter][sequence in glycam condensed notation]. You can choose whatever delimeter you want, but the second argument in the command must specify what the delimeter is.
 
-After building the sequence, GMML2 generates two files, the pdb containing your structure and an AMBER off file. We can ignore the latter. This is the resulting CTA polymer generated from GMML2:
+After building the sequence, GMML2 generates two files, the pdb containing your structure and an AMBER off file. We can ignore the latter. Let's visualize the results of the build in VMD:
 
 ![GMML2_generated_CTA_model](../figures/GMML_CTA_figure1.png)
 
-
-Check it out its a picture!
-
+As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans [REF]. If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (http://128.192.9.183/eln/oliver/2017/03/08/rendering-in-vmd/). 
 
