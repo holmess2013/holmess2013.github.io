@@ -59,7 +59,7 @@ As you can see, its a pretty massive, linear polysaccharide, so I show both the 
 
 In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of CTA plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
 
-First, I assume that glucose residues adopt the 4C1 chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying 4C1 as the lowest-energy pucker [REFS]. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So 4C1 indicates that carbon 4 is above and carbon 1 is below the ring plane.
+First, I assume that glucose residues adopt the <sup>4</sup>C<sub>1</sub> chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying <sup>4</sup>C<sub>1</sub> as the lowest-energy pucker [REFS]. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So <sup>4</sup>C<sub>1</sub> indicates that carbon 4 is above and carbon 1 is below the ring plane.
 
 Second, I assume that the polymer chains are randomly coiled and entangled, in line with the general consensus in polymer science regarding the morphology of amorphous thermoplastics.
 
@@ -67,7 +67,7 @@ The next step is to pack multiple copies of the GMML2-generated polymer into a s
 
 Instead, a more effective approach is to first collapse each polymer chain in vacuum at high temperature, and then pack these compacted structures together to form the initial amorphous system.
 
-Now, you might be thinking, “It looks like all the Glc monomers are already in the 4C1 conformation,” which is true—and seems very convenient at first glance. Unfortunately, it’s been our experience that bond angle force constants within pyranose rings in the GLYCAM06 force field are artificially weak, often resulting in small populations of unrealistic ring conformations even at ambient temperature. These artifacts are likely exacerbated at high temperature, where the polymers have greater thermal energy to overcome the barrier into nonphysical puckers.
+Now, you might be thinking, “*It looks like all the Glc monomers are already in the <sup>4</sup>C<sub>1</sub> conformation*,” which is true—and seems very convenient at first glance. Unfortunately, it’s been our experience that bond angle force constants within pyranose rings in the GLYCAM06 force field are artificially weak, often resulting in small populations of unrealistic ring conformations even at ambient temperature. These artifacts are likely exacerbated at high temperature, where the polymers have greater thermal energy to overcome the barrier into nonphysical puckers.
 
 Fortunately, this will be addressed in our upcoming force field release—GLYCAM25, coming soon!
 
