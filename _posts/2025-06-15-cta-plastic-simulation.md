@@ -55,7 +55,21 @@ After building the sequence, GMML2 generates two files, the pdb containing your 
 
 As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans (Varki et al. 2015). If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (https://glycam.org/docs/othertoolsservice/2016/06/03/3d-symbol-nomenclature-for-glycans-3d-sng/index.html). 
 
+### Collapsing the GMML Model in Vacuum
 
+In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of cellulose triacetate (CTA) plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
+
+First, I assume that glucose residues adopt the 4C1 chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying 4C1 as the lowest-energy pucker [REFS]. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So 4C1 indicates that carbon 4 is above and carbon 1 is below the ring plane.
+
+Second, I assume that the polymer chains are randomly coiled and entangled, in line with the general consensus in polymer science regarding the morphology of amorphous thermoplastics.
+
+The next step is to pack multiple copies of the GMML2-generated polymer into a simulation box. This creates an “unentangled” model of the bulk plastic. I use PACKMOL [REF] for this packing step. While we could, in theory, pack the as-generated linear chains, doing so would require a prohibitively large simulation box to prevent overlap between the extended polymers—leaving vast regions of vacuum. This would not only lead to long equilibration times, but also make chain entanglement unlikely or unphysical within practical simulation timescales.
+
+Instead, a more effective approach is to first collapse each polymer chain in vacuum at high temperature, and then pack these compacted structures together to form the initial amorphous system.
+
+Now, you might be thinking, “It looks like all the Glc monomers are already in the 4C1 conformation,” which is true—and seems very convenient at first glance. Unfortunately, it’s been our experience that bond angle force constants within pyranose rings in the GLYCAM06 force field are artificially weak, often resulting in small populations of unrealistic ring conformations even at ambient temperature. These artifacts are likely exacerbated at high temperature, where the polymers have greater thermal energy to overcome the barrier into nonphysical puckers.
+
+Fortunately, this will be addressed in our upcoming force field release—GLYCAM25, coming soon!
 
 ## References
 [1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/10.1093/glycob/cwv091.
