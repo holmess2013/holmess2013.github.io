@@ -57,7 +57,7 @@ As you can see, its a pretty massive, linear polysaccharide, so I show both the 
 
 ### Collapsing the GMML2 Model in Vacuum
 
-In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of cellulose triacetate (CTA) plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
+In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of CTA plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
 
 First, I assume that glucose residues adopt the 4C1 chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying 4C1 as the lowest-energy pucker [REFS]. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So 4C1 indicates that carbon 4 is above and carbon 1 is below the ring plane.
 
