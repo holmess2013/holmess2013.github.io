@@ -55,7 +55,7 @@ After building the sequence, GMML2 generates two files, the pdb containing your 
 
 As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans (Varki et al. 2015). If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (https://glycam.org/docs/othertoolsservice/2016/06/03/3d-symbol-nomenclature-for-glycans-3d-sng/index.html). 
 
-### Collapsing the GMML Model in Vacuum
+### Collapsing the GMML2 Model in Vacuum
 
 In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of cellulose triacetate (CTA) plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
 
