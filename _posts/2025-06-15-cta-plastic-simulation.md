@@ -49,6 +49,11 @@ CTA.100mer_[4DGlcp[2Ac,3Ac,6Ac]b1-]<100>OH
 ```
 The format the carbohydrate builder is expecting is [sequence_name][delimiter][sequence in glycam condensed notation]. You can choose whatever delimeter you want, but the second argument in the command must specify what the delimeter is.
 
+After building the sequence, GMML2 generates two files, the pdb containing your structure and an AMBER off file. We can ignore the latter. This is the resulting CTA polymer generated from GMML2:
+
+![GMML2_generated_CTA_model](../figures/GMML_CTA_figure1.png)
+
+
 *Last updated 6/18/25*
 
 
