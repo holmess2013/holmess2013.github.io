@@ -34,7 +34,9 @@ To build the model for CTA, we can take advantage of some helpful GMML functiona
 
 Once GMML2 has be succesfully installed, we can build the model of CTA with the carbohydrate builder:
 
+```
 carbohydrateBuilder [input file] _ [output directory]
+```
 
 This command takes three arguments:
 1) You input file containing the glycomaterial you want to build.
@@ -42,9 +44,9 @@ This command takes three arguments:
 3) The output directory for your model.
 
 3) is straightforward, but let's break down 1) and 2). My input file looks like this:
-
+```
 CTA.100mer_[4DGlcp[2Ac,3Ac,6Ac]b1-]<100>OH
-
+```
 The format the carbohydrate builder is expecting is [sequence_name][delimiter][sequence in glycam condensed notation]. You can choose whatever delimeter you want, but the second argument in the command must specify what the delimeter is.
 
 *Last updated 6/18/25*
