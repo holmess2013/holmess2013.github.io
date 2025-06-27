@@ -54,6 +54,6 @@ After building the sequence, GMML2 generates two files, the pdb containing your 
 ![GMML2_generated_CTA_model](../figures/GMML_CTA_figure1.png)
 
 
-*Last updated 6/18/25*
+Check it out its a picture!
 
 
