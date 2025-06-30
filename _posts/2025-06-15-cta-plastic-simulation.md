@@ -59,11 +59,11 @@ As you can see, its a pretty massive, linear polysaccharide, so I show both the 
 
 In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of CTA plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
 
-First, I assume that glucose residues adopt the <sup>4</sup>C<sub>1</sub> chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying <sup>4</sup>C<sub>1</sub> as the lowest-energy pucker [REFS]. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So <sup>4</sup>C<sub>1</sub> indicates that carbon 4 is above and carbon 1 is below the ring plane.
+First, I assume that glucose residues adopt the <sup>4</sup>C<sub>1</sub> chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying <sup>4</sup>C<sub>1</sub> as the lowest-energy pucker. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So <sup>4</sup>C<sub>1</sub> indicates that carbon 4 is above and carbon 1 is below the ring plane.
 
 Second, I assume that the polymer chains are randomly coiled and entangled, in line with the general consensus in polymer science regarding the morphology of amorphous thermoplastics.
 
-The next step is to pack multiple copies of the GMML2-generated polymer into a simulation box. This creates an “unentangled” model of the bulk plastic. I use PACKMOL [REF] for this packing step. While we could, in theory, pack the as-generated linear chains, doing so would require a prohibitively large simulation box to prevent overlap between the extended polymers—leaving vast regions of vacuum. This would not only lead to long equilibration times, but also make chain entanglement unlikely or unphysical within practical simulation timescales.
+The next step is to pack multiple copies of the GMML2-generated polymer into a simulation box. This creates an “unentangled” model of the bulk plastic. I use PACKMOL for this packing step. While we could, in theory, pack the as-generated linear chains, doing so would require a prohibitively large simulation box to prevent overlap between the extended polymers—leaving vast regions of vacuum. This would not only lead to long equilibration times, but also make chain entanglement unlikely or unphysical within practical simulation timescales.
 
 Instead, a more effective approach is to first collapse each polymer chain in vacuum at high temperature, and then pack these compacted structures together to form the initial amorphous system.
 
@@ -71,19 +71,16 @@ Now, you might be thinking, “*It looks like all the Glc monomers are already i
 
 Fortunately, this will be addressed in our upcoming force field release—GLYCAM25, coming soon!
 
-For the time being, a workaround, albeit a bit tedious, is to apply NMR-style torsion angle restraints to all of the rings in the polymer to maintain the 4C1 pucker during collapse. Let's go through an example to understand how to construct a torsion angle restraint. 
+For the time being, a workaround, albeit a bit tedious, is to apply NMR-style torsion angle restraints to all of the rings in the polymer to maintain the <sup>4</sup>C<sub>1</sub> pucker during collapse.
 
-Let's say we have a single Glc ring,
-
-There are two main simulation engines in the AMBER software suite, called sander and pmemd, and we will be using the former for this first step since it plays a bit better with vacuum simulations than pmemd. 
-
-Here is the collapse:
+For now, here is a short video of the collapse:
 
 <video width="640" height="360" controls>
   <source src="/figures/CTA_collapse.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
+**In my next blog update, I will provide specifics on how to run the collapse in AMBER with NMR torsion restraints.**
 
 *Last Updated 6/27/25*
 
