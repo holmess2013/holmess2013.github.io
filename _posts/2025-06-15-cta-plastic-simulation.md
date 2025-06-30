@@ -73,7 +73,7 @@ Fortunately, this will be addressed in our upcoming force field release—GLYCAM
 
 For the time being, a workaround, albeit a bit tedious, is to apply NMR-style torsion angle restraints to all of the rings in the polymer to maintain the <sup>4</sup>C<sub>1</sub> pucker during collapse.
 
-For now, here is a short video of the collapse:
+For now, here is a short video of the collapse, with CTA shown in twister format in VMD:
 
 <video width="640" height="360" controls>
   <source src="/figures/CTA_collapse.mp4" type="video/mp4">
