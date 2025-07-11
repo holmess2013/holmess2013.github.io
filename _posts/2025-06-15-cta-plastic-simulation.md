@@ -77,7 +77,7 @@ As an example, let's say you have a butane molecule and you want to restrain the
 ```
 &rst
 iat=1,2,3,4,
-r1=-160.0, r2=-170.0, r3=170.0, r4=160.0,
+r1=-165.0, r2=-175.0, r3=175.0, r4=165.0,
 rk2=30.0, rk3=30.0,
 &end
 ```
