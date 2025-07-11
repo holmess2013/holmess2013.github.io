@@ -81,7 +81,9 @@ r1=-160.0, r2=-170.0, r3=170.0, r4=160.0,
 rk2=30.0, rk3=30.0,
 &end
 ```
-In your torsion restraint file, each restraint block must start with "$rst" and end with "&end". Unfortunately, restraint blocks can only be specified by atom number, which is why it's so tedious, and that is what the flag "iat" represents. I pray that someone will edit the source code in the future to allow for atom name masks instead of just atom number, but we will have to make do. Sander will apply the torsion restraint via a harmonic well potential, where r1 represents the most negative and r4 represents the most positive torsion defining your well. In practice, a solid well shape is such that each r is seperated by 10 degrees, with your angle bisecting r2 and r3. This is exactly what I have above to restrain the torsion to 180&deg;. 
+In your torsion restraint file, each restraint block must start with "$rst" and end with "&end". Unfortunately, restraint blocks can only be specified by atom number, which is why it's so tedious, and that is what the flag "iat" represents. I pray that someone will edit the source code in the future to allow for atom name masks instead of just atom number, but we will have to make do. Sander will apply the torsion restraint via a harmonic well potential, where r1 represents the most negative and r4 represents the most positive torsion defining your well. In practice, a solid well shape is such that each r is seperated by 10 degrees, with your angle bisecting r2 and r3. This is exactly what I have above to restrain the torsion to 180&deg;. Finally, rk2 and rk3 are force constant which control how steep the penalty is as the angle moves out of the flat region in either direction. 30 kcal/mol is a good starting value. Here is a diagram to help you visualize what this energy penalty looks like in practice:
+
+![torsion restraint](/figures/torsion_restraint.png)
 
 
 
@@ -92,7 +94,7 @@ For now, here is a short video of the collapse, with CTA shown in twister format
   Your browser does not support the video tag.
 </video>
 
-**In my next blog update, I will provide specifics on how to run the collapse in AMBER with NMR torsion restraints.**
+**To be continued. Last updated 7/11/2025.**
 
 *Last Updated 6/27/25*
 
