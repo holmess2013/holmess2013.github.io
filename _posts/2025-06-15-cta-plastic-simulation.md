@@ -73,6 +73,18 @@ Fortunately, this will be addressed in our upcoming force field release—GLYCAM
 
 For the time being, a workaround, albeit a bit tedious, is to apply NMR-style torsion angle restraints to all of the rings in the polymer to maintain the <sup>4</sup>C<sub>1</sub> pucker during collapse.
 
+As an example, let's say you have a butane molecule and you want to restrain the C1-C2-C3-C4 torsion of this molecule to 180&deg; during an AMBER MD simulation. The restraint file would look like this:
+```
+&rst
+iat=1,2,3,4,
+r1=-160.0, r2=-170.0, r3=170.0, r4=160.0,
+rk2=30.0, rk3=30.0,
+&end
+```
+In your torsion restraint file, each restraint block must start with "$rst" and end with "&end". Unfortunately, restraint blocks can only be specified by atom number, which is why it's so tedious, and that is what the flag "iat" represents. I pray that someone will edit the source code in the future to allow for atom name masks instead of just atom number, but we will have to make do. Sander will apply the torsion restraint via a harmonic well potential, where r1 represents the most negative and r4 represents the most positive torsion defining your well. In practice, a solid well shape is such that each r is seperated by 10 degrees, and the angle that you want it restrained to bisect r2 and r3. This is exactly what I have above to restrain the torsion to 180 degrees. Finally, rk
+
+
+
 For now, here is a short video of the collapse, with CTA shown in twister format in VMD:
 
 <video width="640" height="360" controls>
