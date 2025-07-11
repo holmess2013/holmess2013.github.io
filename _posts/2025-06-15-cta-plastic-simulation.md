@@ -73,7 +73,7 @@ Fortunately, this will be addressed in our upcoming force field release—GLYCAM
 
 For the time being, a workaround, albeit a bit tedious, is to apply NMR-style torsion angle restraints to all of the rings in the polymer to maintain the <sup>4</sup>C<sub>1</sub> pucker during collapse.
 
-As an example, let's say you have a butane molecule and you want to restrain the C1-C2-C3-C4 torsion of this molecule to 180&deg; during an AMBER MD simulation. The restraint file would look like this:
+As an example, let's say you have a butane molecule and you want to restrain the C1-C2-C3-C4 torsion of this molecule to 180&deg; during an AMBER MD simulation. Also, let's assume that the carbon atoms have the atom numbers 1, 2, 3, and 4, starting from whatever terminal carbon. The restraint file would look like this:
 ```
 &rst
 iat=1,2,3,4,
@@ -86,6 +86,10 @@ In your torsion restraint file, each restraint block must start with "$rst" and 
 ![torsion restraint](/figures/torsion_restraint.png)
 
 
+Now, since our CTA 100-mer has 100 glucose monomers that need to be restrained in 4C1, and there are 6 torsions that define a pyranose ring pucker, we have 600 rst blocks to write in our restraint file. Not fun to do by hand. So, we will write a python script to automate this. 
+
+**To be continued.**
+
 
 For now, here is a short video of the collapse, with CTA shown in twister format in VMD:
 
@@ -94,7 +98,7 @@ For now, here is a short video of the collapse, with CTA shown in twister format
   Your browser does not support the video tag.
 </video>
 
-**To be continued. Last updated 7/11/2025.**
+ *Last updated 7/11/2025.*
 
 ## References
 [1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/10.1093/glycob/cwv091.
