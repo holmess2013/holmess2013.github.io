@@ -16,17 +16,22 @@ To that end, in this blog series, I use all-atom MD simulations with the GLYCAM0
 
 
 # Goals
-- Successfully build and parameterize a system of 20 x CTA polymers with DP = 100 and DS = 3.0.
-- Equilibrate the system at 600 K to allow chain entanglement, and then cool down to 300 K to achieve a "realistic" starting configuration of an amorphous CTA plastic.
-- Predict glass transition temperature and Young's modulus. 
+- Prepare a 3D Model of an Amorphous CTA Thermoplastic.
+- Predict glass transition temperature and Young's modulus by MD Simulation. 
 
-## Part 1: Building and Parameterizing the Initial System
+## Part 1: Preparing the Plastic
 
-The first objective in this project is to obtain a 3D model of CTA that is physically realistic and consistent with the DS of real CTA plastics. The DS refers to the average number of hydroxyl groups per glucose unit that have been replaced with acetate groups, with a maximum of 3.0. In practice, polymer chemists rarely achieve a perfect DS of exactly 3.0. Even when aiming for full substitution, the final product typically falls somewhere in the range of 2.7 to just under 3.0, depending on reaction conditions and steric accessibility of the hydroxyls. These small differences in DS can affect the the thermoplastic properties of CTA, which is why it is important to try and match the real DS. 
+To prepare a physically reasonable structure for an amorphous CTA plastic, the general protocol is as follows:
+1) Obtain a 3D model of the polymer.
+2) Pack multiple copies of this polymer into a cube using PACKMOL.
+3) High temperature annealing to allow chains to entangle.
 
-For this initial model, I am going to use a simplified approach: a fully substituted CTA with DS = 3.0, meaning that every glucose monomer is acetyated at the 2-, 3-, and 6- positions. While not perfectly reflective of a real-world CTA sample, this version is chemically well-defined, and likely close enough in chemical structure to exhibit similar bulk behavior—especially in the amorphous phase. If needed, I can revisit partial substitution in future models using a randomized or pattern-based DS distribution.
+In deciding on a polymer for my 3D model that is consistent with a real CTA plastic, there are three major criteria to consider: the degree of substitution (DS), the degree of polymerization (DP), and the number of polymers to pack into the cube. 
 
-### Obtaining a 3D Model of a Single CTA 100-mer (DS = 3.0)
+DS refers to the average number of hydroxyl groups per glucose unit that have been replaced with acetate groups, with a maximum of 3.0. In practice, polymer chemists rarely achieve a perfect DS of exactly 3.0. Even when aiming for full substitution, the final product typically falls somewhere in the range of 2.7 to just under 3.0, depending on reaction conditions and steric accessibility of the hydroxyls. These small differences in DS can affect the the thermoplastic properties of CTA, which is why it is important to try and match the real DS. 
+For this initial model, I am going to use a simplified approach: a fully substituted CTA with DS = 3.0, meaning that every glucose monomer is acetyated at the 2-, 3-, and 6- positions. While not perfectly reflective of a real-world CTA sample, this version is chemically well-defined, and likely close enough in chemical structure to exhibit similar bulk behavior—especially in the amorphous phase. If needed, I can revisit partial substitution in future models using a randomized or pattern-based DS distribution. DP is the length of the polymer chain. In MD, because of the high computational cost, I want to use the minimal chain length possible to simulate what I'm after, and it most CTA plastics DP ranges from 100-350. Thus, I will use the minimum of DP=100 for this project. Choosing the number of polymers is based on studies in the literature, again selecting the minimum number that will achieve sufficient entanglement for plastic-like behavior. In this project, I will use 20. 
+
+### Obtaining a 3D Model of a Single CTA 100-mer
 
 In this project, I will use the Glycam Molecular Modeling Library (GMML) to construct a 3D model of CTA, which is a C++ software package written by Oliver Grant, a research scientist in the Woods Lab. I've included Oliver's GitHub URL here if you are interested in checking out his coding projects (https://github.com/gitoliver). A new version of GMML has recently been released to the public, called GMML2. GMML2 is an incredibly valuable piece of software, as it was prepared with the strict formatting requirements of LEaP in mind - the notoriously finnicky program in AMBER that attempts to match force field parameters to a 3D model. In short, GMML2 is an ideal choice here for model generation as it rapidly generates physically realistic molecular models of glycomaterials in PDB format with all the necessary information for LEaP to correctly parameterize it, in particular, GLYCAM atom and residue names, TER cards to separate each residue, and bonding information. GMML2 can be installed as a standalone package and used on the command line, and information about installation and usage is included here (https://github.com/GLYCAM-Web/gmml2). 
 
@@ -55,19 +60,17 @@ After building the sequence, GMML2 generates two files, the pdb containing your 
 
 As you can see, its a pretty massive, linear polysaccharide, so I show both the entire 100-mer as well as a zoomed-in view so that you can see the molecular details. The blue sphere at the center of each glucose monomer is a formatting preference of mine, providing an easy way to identify the monosaccharide, a format known as Symbol Nomenclature for Glycans (Varki et al. 2015). If you would like to utilize this representation in your research, here is a link to install this plugin in VMD (https://glycam.org/docs/othertoolsservice/2016/06/03/3d-symbol-nomenclature-for-glycans-3d-sng/index.html). 
 
-### Collapsing the GMML2 Model in Vacuum
+### Preparing the Plastic
 
-In this project, I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of CTA plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
+I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of CTA plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
 
 First, I assume that glucose residues adopt the <sup>4</sup>C<sub>1</sub> chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying <sup>4</sup>C<sub>1</sub> as the lowest-energy pucker. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So <sup>4</sup>C<sub>1</sub> indicates that carbon 4 is above and carbon 1 is below the ring plane.
 
 Second, I assume that the polymer chains are randomly coiled and entangled, in line with the general consensus in polymer science regarding the morphology of amorphous thermoplastics.
 
-The next step is to pack multiple copies of the GMML2-generated polymer into a simulation box. This creates an “unentangled” model of the bulk plastic. I use PACKMOL for this packing step. While we could, in theory, pack the as-generated linear chains, doing so would require a prohibitively large simulation box to prevent overlap between the extended polymers—leaving vast regions of vacuum. This would not only lead to long equilibration times, but also make chain entanglement unlikely or unphysical within practical simulation timescales.
+To achieve an entangled polymer system, one option is to pack the fully extended CTA 100-mer generated by GMML2 and rely on MD in the NPT ensemble to shrink the box, with the idea that compressing long chains into close contact might promote entanglement. While NPT does effectively reduce excess volume, it doesn’t guarantee meaningful interchain entanglement—especially for rigid, linear chains that tend to align and stack rather than wrap and tangle. An alternative approach is to pack fully collapsed conformers, which start in a denser arrangement and evolve under high-temperature NVT with some breathing room. The hope is that the chains will unfold, diffuse, and gradually interpenetrate under thermal motion. I will try the second approach first. 
 
-Instead, a more effective approach is to first collapse each polymer chain in vacuum at high temperature, and then pack these compacted structures together to form the initial amorphous system.
-
-Now, you might be thinking, “*It looks like all the Glc monomers are already in the <sup>4</sup>C<sub>1</sub> conformation*,” which is true—and seems very convenient at first glance. Unfortunately, it’s been our experience that bond angle force constants within pyranose rings in the GLYCAM06 force field are artificially weak, often resulting in small populations of unrealistic ring conformations even at ambient temperature. These artifacts are likely exacerbated at high temperature, where the polymers have greater thermal energy to overcome the barrier into nonphysical puckers.
+To collapse the CTA polymer, I can run a quick 5 ns simulation in vacuum at high temperature (600 K), while simultaneously restraining all puckers in the <sup>4</sup>C<sub>1</sub> conformation. Now, you might be thinking, “*It looks like all the Glc monomers are already in the <sup>4</sup>C<sub>1</sub> conformation*,” which is true—and seems very convenient at first glance. Unfortunately, it’s been our experience that bond angle force constants within pyranose rings in the GLYCAM06 force field are artificially weak, often resulting in small populations of unrealistic ring conformations even at ambient temperature. These artifacts are likely exacerbated at high temperature, where the polymers have greater thermal energy to overcome the barrier into nonphysical puckers.
 
 Fortunately, this will be addressed in our upcoming force field release—GLYCAM25, coming soon!
 
@@ -88,7 +91,7 @@ In your torsion restraint file, each restraint block must start with "$rst" and 
 
 Now, since our CTA 100-mer has 100 glucose monomers that need to be restrained in 4C1, and there are 6 torsions that define a pyranose ring pucker, we have 600 rst blocks to write in our restraint file. Not fun to do by hand. So, we will write a python script to automate this. 
 
-**To be continued.**
+**Coming soon.**
 
 
 For now, here is a short video of the collapse, with CTA shown in twister format in VMD:
@@ -98,7 +101,13 @@ For now, here is a short video of the collapse, with CTA shown in twister format
   Your browser does not support the video tag.
 </video>
 
- *Last updated 7/11/2025.*
+After packing the 20 100-mers into a cube with packmol, which I call the "unentangled" system, minimize, equilibrate, and run production MD in NVT for 500 ns to see if the chain entangle.
+
+** Insert video here **
+
+They do not. They seem to be trapped in their folded conformations. Thus, I will instead revisit the trajectory from the vacuum simulation, and select an intermediate conformer that is neither completely extended nor completely folded, and rely on NPT to bring the chains together to see if that better causes entanglement. 
+
+*Last updated 7/14/25*
 
 ## References
 [1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/10.1093/glycob/cwv091.
