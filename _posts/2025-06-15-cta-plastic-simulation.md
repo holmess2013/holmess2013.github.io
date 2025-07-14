@@ -103,7 +103,7 @@ For now, here is a short video of the collapse, with CTA shown in twister format
 
 After packing the 20 100-mers into a cube with packmol, which I call the "unentangled" system, minimize, equilibrate, and run production MD in NVT for 500 ns to see if the chain entangle.
 
-** Insert video here **
+**Insert video here**
 
 They do not. They seem to be trapped in their folded conformations. Thus, I will instead revisit the trajectory from the vacuum simulation, and select an intermediate conformer that is neither completely extended nor completely folded, and rely on NPT to bring the chains together to see if that better causes entanglement. 
 
