@@ -147,6 +147,83 @@ for residue in residues:
 
 output_file.close()
 ```
+Now, here is the module that writes out rst blocks on a per-residue basis:
+
+```
+def write_4C1_blocks(ring_atom_dict, res, rst_file):
+    """
+
+    This function takes in:
+     1)  a dictionary where each key:value pair will be the ring atom:atom number
+     2)  the residue number
+     3) the name of the rst file to write out to, which will be constant
+     
+    writes out 6 AMBER-style rst blocks for the 6 ring torsions in a
+    pyranose ring, restraining it to the 4C1 chair conformation.
+    
+
+    1) A dictionary holding 6 key-value pairs, for each of the ring atoms of a sugar
+    and the corresponding atom number.
+
+    2) The current residue number as an integer.
+    
+    3) The file object for the output rst file so we can write the rst blocks
+    to it.
+
+    """
+
+    rst_file.write(f"\n# Residue {res}\n\n")
+
+    # Torsion 1 restraint
+    rst_file.write("# O5-C1-C2-C3\n")
+    rst_file.write("&rst\n")
+    rst_file.write(f"iat={ring_atom_dict["O5"]},{ring_atom_dict["C1"]},{ring_atom_dict["C2"]},{ring_atom_dict["C3"]},\n")
+    rst_file.write("r1=45.0, r2=55.0, r3=65.0, r4=75.0,\n")
+    rst_file.write("rk2=30.0, rk3=30.0,\n")
+    rst_file.write("&end\n\n")
+
+    # Torsion 2 restraint
+    rst_file.write("# C1-C2-C3-C4\n")
+    rst_file.write("&rst\n")
+    rst_file.write(f"iat={ring_atom_dict["C1"]},{ring_atom_dict["C2"]},{ring_atom_dict["C3"]},{ring_atom_dict["C4"]},\n")
+    rst_file.write("r1=-75.0, r2=-65.0, r3=-55.0, r4=-45.0,\n")
+    rst_file.write("rk2=30.0, rk3=30.0,\n")
+    rst_file.write("&end\n\n")
+
+    # Torsion 3 restraint
+    rst_file.write("# C2-C3-C4-C5\n")
+    rst_file.write("&rst\n")
+    rst_file.write(f"iat={ring_atom_dict["C2"]},{ring_atom_dict["C3"]},{ring_atom_dict["C4"]},{ring_atom_dict["C5"]},\n")
+    rst_file.write("r1=45.0, r2=55.0, r3=65.0, r4=75.0,\n")
+    rst_file.write("rk2=30.0, rk3=30.0,\n")
+    rst_file.write("&end\n\n")
+
+    # Torsion 4 restraint
+    rst_file.write("# C3-C4-C5-O5\n")
+    rst_file.write("&rst\n")
+    rst_file.write(f"iat={ring_atom_dict["C3"]},{ring_atom_dict["C4"]},{ring_atom_dict["C5"]},{ring_atom_dict["O5"]},\n")
+    rst_file.write("r1=-75.0, r2=-65.0, r3=-55.0, r4=-45.0,\n")
+    rst_file.write("rk2=30.0, rk3=30.0,\n")
+    rst_file.write("&end\n\n")
+
+    # Torsion 5 restraint
+    rst_file.write("# C4-C5-O5-C1\n")
+    rst_file.write("&rst\n")
+    rst_file.write(f"iat={ring_atom_dict["C4"]},{ring_atom_dict["C5"]},{ring_atom_dict["O5"]},{ring_atom_dict["C1"]},\n")
+    rst_file.write("r1=45.0, r2=55.0, r3=65.0, r4=75.0,\n")
+    rst_file.write("rk2=30.0, rk3=30.0,\n")
+    rst_file.write("&end\n\n")
+
+    # Torsion 6 restraint
+    rst_file.write("# C5-O5-C1-C2\n")
+    rst_file.write("&rst\n")
+    rst_file.write(f"iat={ring_atom_dict["C5"]},{ring_atom_dict["O5"]},{ring_atom_dict["C1"]},{ring_atom_dict["C2"]},\n")
+    rst_file.write("r1=-75.0, r2=-65.0, r3=-55.0, r4=-45.0,\n")
+    rst_file.write("rk2=30.0, rk3=30.0,\n")
+    rst_file.write("&end\n\n")
+
+```
+
 
 For now, here is a short video of the collapse, with CTA shown in twister format in VMD:
 
