@@ -157,7 +157,10 @@ For now, here is a short video of the collapse, with CTA shown in twister format
 
 After packing the 20 100-mers into a cube with packmol, which I call the "unentangled" system, minimize, equilibrate, and run production MD in NVT for 500 ns to see if the chain entangle.
 
-**Insert video here**
+<video width="640" height="360" controls>
+  <source src="/figures/entangle_with_fully_collapsed_CTA.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 As you can see, they largely stay in there folded states, which is not what I wanted. This suggests that they are kinetically trapped once they collapse. Its likely that hydrogen bonding is overly strong for polysaccharides parameterized with GLYCAM06 in vacuum, so I would probably do better to select an intermediate conformer that is neither completely extended nor completely folded, and rely on NPT to shrink the box and bring the chains together so that they will better entangle. Let's try this. 
 
