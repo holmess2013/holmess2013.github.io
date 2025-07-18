@@ -159,7 +159,7 @@ After packing the 20 100-mers into a cube with packmol, which I call the "unenta
 
 **Insert video here**
 
-They do not. They seem to be trapped in their folded conformations. Thus, I will instead revisit the trajectory from the vacuum simulation, and select an intermediate conformer that is neither completely extended nor completely folded, and rely on NPT to bring the chains together to see if that better causes entanglement. 
+As you can see, they largely stay in there folded states, which is not what I wanted. This suggests that they are kinetically trapped once they collapse. Its likely that hydrogen bonding is overly strong for polysaccharides parameterized with GLYCAM06 in vacuum, so I would probably do better to select an intermediate conformer that is neither completely extended nor completely folded, and rely on NPT to shrink the box and bring the chains together so that they will better entangle. Let's try this. 
 
 *Last updated 7/14/25*
 
