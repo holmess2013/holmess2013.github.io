@@ -86,7 +86,7 @@ rk2=30.0, rk3=30.0,
 ```
 In your torsion restraint file, each restraint block must start with "$rst" and end with "&end". Unfortunately, restraint blocks can only be specified by atom number, which is why it's so tedious, and that is what the flag "iat" represents. I pray that someone will edit the source code in the future to allow for atom name masks instead of just atom number, but we will have to make do. Sander will apply the torsion restraint via a harmonic well potential, where r1 represents the most negative and r4 represents the most positive torsion defining your well. In practice, a solid well shape is such that each r is seperated by 10&deg;, with your angle bisecting r2 and r3. This is exactly what I have above to restrain the torsion to 180&deg;. Finally, rk2 and rk3 are force constants which control how steep the penalty is as the angle moves out of the flat region in either direction. 30 kcal/mol is a good starting value. Here is a diagram to help you visualize what this energy penalty looks like in practice:
 
-![torsion restraint](/figures/torsion_restraint.png)
+![torsion restraint](/figures/torsion_restraint_V2.png)
 
 
 Now, since our CTA 100-mer has 100 glucose monomers that need to be restrained in 4C1, and there are 6 torsions that define a pyranose ring pucker, we have 600 rst blocks to write in our restraint file. Not fun to do by hand. So, we will write a python script to automate this. 
