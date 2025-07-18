@@ -107,7 +107,7 @@ with open("CTA_plastic_leap.pdb") as f:
     contents = f.read().splitlines()
 
 
-# Make a list where each element is a list of atom lines with the same residue residue number
+# Make a list where each element is a list of atom lines with the same residue number
 residues = []
 current_residue = []
 
