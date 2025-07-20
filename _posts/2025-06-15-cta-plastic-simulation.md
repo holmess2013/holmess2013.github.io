@@ -235,7 +235,7 @@ For now, here is a short video of the collapse, with CTA shown in twister format
 After packing the 20 100-mers into a cube with packmol, which I call the "unentangled" system, I minimize, equilibrate, and run production MD in NVT for 500 ns to see if the chains entangle.
 
 <video width="640" height="360" controls>
-  <source src="/figures/entangle_with_fully_collapsed_CTA.mp4" type="video/mp4">
+  <source src="/figures/ffmpeg_entangle_with_fully_collapsed_CTA.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
