@@ -64,7 +64,7 @@ As you can see, its a pretty massive, linear polysaccharide, so I show both the 
 
 I want to emphasize that—to my knowledge—there are no experimental data that directly resolve the 3D molecular structure of CTA plastics. As a result, several assumptions must be made in order to construct a physically reasonable starting model.
 
-First, I assume that glucose residues adopt the <sup>4</sup>C<sub>1</sub> chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank and (b) quantum mechanical calculations identifying <sup>4</sup>C<sub>1</sub> as the lowest-energy pucker. For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So <sup>4</sup>C<sub>1</sub> indicates that carbon 4 is above and carbon 1 is below the ring plane.
+First, I assume that glucose residues adopt the <sup>4</sup>C<sub>1</sub> chair conformation, based on (a) experimental crystal structures of related carbohydrates in the Protein Data Bank (Agirre et al. 2015) and (b) theoretical approaches suggesting it is the lowest-energy pucker (Appell et al. 2004). For readers unfamiliar with pyranose ring puckering notation: the number or letter shown as a superscript is above the plane of the ring, while subscripts are below. The unmarked “C” denotes a chair conformation. So <sup>4</sup>C<sub>1</sub> indicates that carbon 4 is above and carbon 1 is below the ring plane.
 
 Second, I assume that the polymer chains are randomly coiled and entangled, in line with the general consensus in polymer science regarding the morphology of amorphous thermoplastics.
 
@@ -271,6 +271,10 @@ As you can see, they largely stay in there folded states, which is not what I wa
 
 ## References
 [1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/10.1093/glycob/cwv091.
+[2] Jon Agirre, Gideon Davies, Keith Wilson, and Kevin Cowtan. 2015. Carbohydrate anomalies in the PDB. Nature Chemical Biology 11, 5, https://doi.org/ 10.1038/nchembio.1798.
+[3] M. Appell, G. Strati, J. L. Willett, and F. A. Momany. 2004. B3LYP/6-311++G** study of α- and β-d-glucopyranose and 1,5-anhydro-d-glucitol: 4C1 and 1C4 chairs, 3,OB and B3,O boats, and skew-boat conformations. Carbohydr. Res. 339, 3, https://doi.org/ https://doi.org/10.1016/j.carres.2003.10.014
+
+
 
 
 
