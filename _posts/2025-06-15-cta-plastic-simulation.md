@@ -224,7 +224,7 @@ def write_4C1_blocks(ring_atom_dict, res, rst_file):
 
 ```
 
-Now that we have the restraint file ready to go, we can subject the GMML model to MD at 600 K for 5 ns in vacuum to collapse it. Here is the input file that will do this using sander in the AMBER software suite:
+Now that we have the restraint file ready to go, we can subject the GMML model to MD at 600 K for 10 ns in vacuum to collapse it. Here is the input file that will do this using sander in the AMBER software suite:
 
 ```
 MD in vacuo at 600 K for 10 ns with puckering restraints
