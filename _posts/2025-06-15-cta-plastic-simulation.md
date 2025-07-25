@@ -224,8 +224,34 @@ def write_4C1_blocks(ring_atom_dict, res, rst_file):
 
 ```
 
+Now that we have the restraint file ready to go, we can subject the GMML model to MD at 600 K for 5 ns in vacuum to collapse it. Here is the input file that will do this using sander in the AMBER software suite:
 
-For now, here is a short video of the collapse, with CTA shown in twister format in VMD:
+```
+MD in vacuo at 600 K for 2 ns with puckering restraints
+&cntrl
+  imin=0, ntb=0, igb=0,
+  ntpr=2000, ntwx=2000,
+  ntt=3, gamma_ln=1.0,
+  tempi=600.0, temp0=600.0,
+  nstlim=1000000, dt=0.002,
+  cut=999.0,
+  nmropt=1,
+/
+&wt
+ type='END' &end
+  LISTOUT=POUT
+  DISANG=CTA.rst
+```
+Notice the flag at the end that specifies the torsional restraint file we will be using. Now, to launch the simulation, assuming that the parm7, rst7, input file, and restraint file are all in your working directory, you type:
+
+```
+sander -O -i MD.in -o MD.o -p CTA.parm7 -c CTA.rst7 -r MD.rst7 -x MD.nc -ref CTA.rst7
+```
+The final argument, -ref CTA.rst7, provides reference coordinates that AMBER uses for positional restraints—for example, to keep atoms near their original positions during equilibration. In those cases, the reference coordinates are essential.
+
+When applying dihedral restraints (e.g., via &rst blocks), the restraint targets are defined directly in the input file, so AMBER doesn't use the -ref coordinates to determine those targets. However, you must still include the -ref argument, or AMBER will throw an error—even if you're not using positional restraints. Think of it as a required formality in these cases.
+
+Here is a short video of the collapse, with CTA shown in twister format in VMD:
 
 <video width="640" height="360" controls>
   <source src="/figures/CTA_collapse.mp4" type="video/mp4">
