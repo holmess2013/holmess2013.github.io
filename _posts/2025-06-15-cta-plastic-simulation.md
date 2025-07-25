@@ -267,7 +267,7 @@ After packing the 20 100-mers into a cube with packmol, which I call the "unenta
 
 As you can see, they largely stay in there folded states, which is not what I wanted. This suggests that they are kinetically trapped once they collapse. Its likely that hydrogen bonding is overly strong for polysaccharides parameterized with GLYCAM06 in vacuum, so I would probably do better to select an intermediate conformer that is neither completely extended nor completely folded, and rely on NPT to shrink the box and bring the chains together so that they will better entangle. Let's try this. 
 
-*Last updated 7/18/25*
+*Last updated 7/25/25*
 
 ## References
 [1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/10.1093/glycob/cwv091.
