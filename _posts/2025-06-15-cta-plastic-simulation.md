@@ -272,9 +272,9 @@ As you can see, they largely stay in there folded states, which is not what I wa
 ## References
 [1] Ajit Varki, Richard D. Cummings, Markus Aebi, Nicole H. Packer, Peter H. Seeberger, Jeffrey D. Esko, Pamela Stanley, Gerald Hart, Alan Darvill, Taroh Kinoshita, James J. Prestegard, Ronald L. Schnaar, Hudson H. Freeze, Jamey D. Marth, Carolyn R. Bertozzi, Marilynn E. Etzler, Martin Frank, Johannes F. G. Vliegenthart, Thomas Lütteke, Serge Perez, Evan Bolton, Pauline Rudd, James Paulson, Minoru Kanehisa, Philip Toukach, Kiyoko F. Aoki-Kinoshita, Anne Dell, Hisashi Narimatsu, William York, Naoyuki Taniguchi, and Stuart Kornfeld. 2015. Symbol nomenclature for graphical representations of glycans. Glycobiology 25, 12, https://doi.org/10.1093/glycob/cwv091.
 
-[2] Jon Agirre, Gideon Davies, Keith Wilson, and Kevin Cowtan. 2015. Carbohydrate anomalies in the PDB. Nature Chemical Biology 11, 5, https://doi.org/ 10.1038/nchembio.1798.
+[2] Jon Agirre, Gideon Davies, Keith Wilson, and Kevin Cowtan. 2015. Carbohydrate anomalies in the PDB. Nature Chemical Biology 11, 5, https://doi.org/10.1038/nchembio.1798.
 
-[3] M. Appell, G. Strati, J. L. Willett, and F. A. Momany. 2004. B3LYP/6-311++G** study of α- and β-d-glucopyranose and 1,5-anhydro-d-glucitol: 4C1 and 1C4 chairs, 3,OB and B3,O boats, and skew-boat conformations. Carbohydr. Res. 339, 3, https://doi.org/ https://doi.org/10.1016/j.carres.2003.10.014
+[3] M. Appell, G. Strati, J. L. Willett, and F. A. Momany. 2004. B3LYP/6-311++G** study of α- and β-d-glucopyranose and 1,5-anhydro-d-glucitol: 4C1 and 1C4 chairs, 3,OB and B3,O boats, and skew-boat conformations. Carbohydr. Res. 339, 3, https://doi.org/10.1016/j.carres.2003.10.014.
 
 
 
